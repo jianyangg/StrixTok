@@ -1,5 +1,6 @@
 // this page loads the purchase confirmation page.
 import 'package:flutter/material.dart';
+import 'package:tiktok_hackers/pages/home_page.dart';
 import 'package:tiktok_hackers/pages/shop_page.dart';
 
 class PurchaseConfirmationPage extends StatefulWidget {
@@ -18,7 +19,15 @@ class _PurchaseConfirmationPageState extends State<PurchaseConfirmationPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 1,
-        automaticallyImplyLeading: true,
+        // automaticallyImplyLeading: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const ShopPage();
+            }));
+          },
+        ),
         foregroundColor: Colors.black,
       ),
       body: Column(
@@ -26,7 +35,7 @@ class _PurchaseConfirmationPageState extends State<PurchaseConfirmationPage> {
           const OrderPlacedWidget(),
           const SizedBox(height: 8),
           Container(
-            height: MediaQuery.of(context).size.height * 0.59,
+            height: MediaQuery.of(context).size.height * 0.56,
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
               color: Colors.white,

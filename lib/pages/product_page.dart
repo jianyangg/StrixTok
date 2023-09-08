@@ -1,8 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_hackers/pages/purchase_page.dart';
 
 class ProductPage extends StatelessWidget {
   final String productID;
-  const ProductPage({Key? key, required this.productID}) : super(key: key);
+  ProductPage({Key? key, required this.productID}) : super(key: key);
+
+  final List<AssetImage> images = [
+    const AssetImage('assets/images/clock.jpg'),
+    const AssetImage('assets/images/headphones.jpg'),
+    const AssetImage('assets/images/polaroid.jpg'),
+    const AssetImage('assets/images/dice.jpeg'),
+    const AssetImage('assets/images/toaster.jpeg'),
+    const AssetImage('assets/images/measure.jpeg'),
+  ];
+
+  final List<String> productLabel = [
+    'Clock',
+    'Headphones',
+    'Polaroid',
+    'Dice',
+    'Toaster',
+    'Measure',
+  ];
+
+  AssetImage getAssetImage(String productID) {
+    switch (productID) {
+      case 'Clock':
+        return images[0];
+      case 'Headphones':
+        return images[1];
+      case 'Polaroid':
+        return images[2];
+      case 'Dice':
+        return images[3];
+      case 'Toaster':
+        return images[4];
+      case 'Measuring Tape':
+        return images[5];
+      default:
+        return images[0];
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +56,9 @@ class ProductPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             // Product Image
-            Image.asset(
-              'assets/images/clock.jpg',
-              height: 300,
-              fit: BoxFit.cover,
+            Image(
+              image: getAssetImage(productID),
+              fit: BoxFit.fitWidth,
             ),
             // Product Title
             Padding(
@@ -77,11 +114,14 @@ class ProductPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   // Add to Cart logic here
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const PurchasePage();
+                  }));
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.red),
                 ),
-                child: const Text('Add to Cart'),
+                child: const Text('Buy with coupon'),
               ),
             ),
             // Additional Product Information
@@ -164,11 +204,11 @@ Widget buildReviewPost(
     child: Column(
       children: <Widget>[
         if (indentationLevel != 0)
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: Text(
                   "\tIn reply to",
                   textAlign: TextAlign.start,
@@ -198,12 +238,12 @@ Widget buildReviewPost(
               onPressed: () {
                 // Upvote logic
               },
-              icon: Icon(Icons.arrow_upward),
+              icon: const Icon(Icons.arrow_upward),
               color: Colors.blue,
             ),
             Text(
               upvotes.toString(),
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.blue,
                 fontWeight: FontWeight.bold,
               ),
@@ -213,12 +253,12 @@ Widget buildReviewPost(
               onPressed: () {
                 // Downvote logic
               },
-              icon: Icon(Icons.arrow_downward),
+              icon: const Icon(Icons.arrow_downward),
               color: Colors.red,
             ),
             Text(
               '$downvotes\t\t\t',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.red,
                 fontWeight: FontWeight.bold,
               ),

@@ -36,9 +36,9 @@ class _PurchasePageState extends State<PurchasePage> {
           children: [
             const Spacer(),
             const Text(
-              'This page simulates the purchase process.',
+              'This page simulates the payment process.',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 24),
+              style: TextStyle(fontSize: 22),
             ),
             const Spacer(),
             Padding(

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_hackers/pages/account_page.dart';
+import 'package:tiktok_hackers/pages/film_video_page.dart';
+import 'package:tiktok_hackers/pages/home_page.dart' as homePage;
 import 'package:tiktok_hackers/pages/inbox_page.dart';
 import 'package:tiktok_hackers/pages/shop_page.dart';
+import 'package:tiktok_hackers/widgets/upload_icon.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -12,7 +16,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 1,
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
@@ -26,7 +30,7 @@ class BottomNavBar extends StatelessWidget {
             tooltip: 'Shop',
           ),
           const BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: UploadIcon(),
             label: 'Add',
             tooltip: 'Add',
           ),
@@ -66,17 +70,25 @@ class BottomNavBar extends StatelessWidget {
           ),
         ],
         currentIndex: currentIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey[600],
-        showUnselectedLabels: true,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey[400],
+        showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         onTap: (int index) {
           switch (index) {
             case 0:
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return homePage.HomePage();
+              }));
+              break;
             case 1:
-            case 2:
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return const ShopPage();
+              }));
+              break;
+            case 2:
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return FilmVideoPage();
               }));
               break;
             case 3:
@@ -86,7 +98,7 @@ class BottomNavBar extends StatelessWidget {
               break;
             case 4:
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const ShopPage();
+                return const AccountPage();
               }));
               break;
           }

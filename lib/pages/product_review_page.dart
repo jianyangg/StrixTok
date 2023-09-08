@@ -158,7 +158,8 @@ class ProductReviewPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return const FilmVideoPage(reviewType: "video");
+                      return const FilmVideoPage(
+                          reviewType: "Shared to public feed");
                     }));
                   },
                   style: ButtonStyle(
@@ -225,7 +226,8 @@ class ProductReviewPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return const FilmVideoPage(reviewType: "video");
+                      return const FilmVideoPage(
+                          reviewType: "Shared with followers");
                     }));
                   },
                   style: ButtonStyle(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_hackers/components/bottom_nav_bar.dart';
 import 'package:tiktok_hackers/components/own_search_bar.dart';
 import 'package:tiktok_hackers/components/features_horizontal.dart';
+import 'package:tiktok_hackers/pages/product_page.dart';
 import 'package:tiktok_hackers/pages/purchase_page.dart';
 
 class ShopPage extends StatefulWidget {
@@ -32,12 +33,6 @@ class _ShopPageState extends State<ShopPage> {
     const AssetImage('assets/images/dice.jpeg'),
     const AssetImage('assets/images/toaster.jpeg'),
     const AssetImage('assets/images/measure.jpeg'),
-    // Image.asset('assets/images/clock.jpg'),
-    // Image.asset('assets/images/headphones.jpg'),
-    // Image.asset('assets/images/polaroid.jpg'),
-    // Image.asset('assets/images/dice.jpeg'),
-    // Image.asset('assets/images/toaster.jpeg'),
-    // Image.asset('assets/images/measure.jpeg'),
   ];
 
   final List<String> productLabel = [
@@ -61,56 +56,46 @@ class _ShopPageState extends State<ShopPage> {
       length: tabs.length,
       child: Scaffold(
         backgroundColor: Colors.grey.shade200,
-        body: Column(
-          // we want to mimic the TikTok shop page
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            const SizedBox(
-              height: 50,
-            ),
-            const OwnSearchBar(),
-            // create a horizontal list view of features
-            const SizedBox(
-              height: 5,
-            ),
-            FeaturesHorizontal(),
-            // create a section that pops up one message every few seconds
-            MessageLoop(
-              newOrder: widget.newOrder,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const FlashSaleWidget(),
-            TabBar(
-              isScrollable: true,
-              labelColor: Colors.black,
-              unselectedLabelColor: Colors.black,
-              indicatorColor: Colors.black,
-              indicatorWeight: 3,
-              indicatorSize: TabBarIndicatorSize.label,
-              tabs: tabs
-                  .map((tab) => Tab(
-                        icon: Text(
-                          tab,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineSmall!
-                              .copyWith(
-                                  fontSize: 18, fontWeight: FontWeight.w700),
-                        ),
-                      ))
-                  .toList(),
-            ),
-            const Divider(
-              thickness: 2,
-            ),
-            // grid view of products. max 2 products per row
-            // use arbitrary containers to replace images for now
-            Expanded(
-              child: GridView.count(
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              SizedBox(height: 50),
+              const OwnSearchBar(),
+              SizedBox(height: 5),
+              FeaturesHorizontal(),
+              MessageLoop(newOrder: widget.newOrder),
+              SizedBox(height: 20),
+              const FlashSaleWidget(),
+              TabBar(
+                isScrollable: true,
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.black,
+                indicatorColor: Colors.black,
+                indicatorWeight: 3,
+                indicatorSize: TabBarIndicatorSize.label,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                tabs: tabs.map((tab) {
+                  return Tab(
+                    icon: Text(
+                      tab,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(fontSize: 18, fontWeight: FontWeight.w700),
+                    ),
+                  );
+                }).toList(),
+              ),
+              Divider(thickness: 2),
+              // GridView of products
+              GridView.count(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
                 crossAxisCount: 2,
-                children: List.generate(4, (index) {
+                padding: EdgeInsets.all(0),
+                children: List.generate(6, (index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
@@ -118,9 +103,8 @@ class _ShopPageState extends State<ShopPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) {
-                              return const PurchasePage();
-                            },
+                            builder: (context) =>
+                                ProductPage(productID: productLabel[index]),
                           ),
                         );
                       },
@@ -133,9 +117,7 @@ class _ShopPageState extends State<ShopPage> {
                         child: Center(
                           child: Column(
                             children: [
-                              const SizedBox(
-                                height: 10,
-                              ),
+                              SizedBox(height: 10),
                               Container(
                                 alignment: Alignment.center,
                                 height:
@@ -149,12 +131,8 @@ class _ShopPageState extends State<ShopPage> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                height: 10,
-                              ),
+                              SizedBox(height: 6),
                               Text(
-                                // 'Item $index',
-                                // give random price number
                                 '${productLabel[index]} \$${index + 1}',
                                 style: Theme.of(context)
                                     .textTheme
@@ -163,9 +141,7 @@ class _ShopPageState extends State<ShopPage> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.w700),
                               ),
-                              const SizedBox(
-                                height: 5,
-                              ),
+                              SizedBox(height: 5),
                             ],
                           ),
                         ),
@@ -174,10 +150,10 @@ class _ShopPageState extends State<ShopPage> {
                   );
                 }),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-        // bottom navigation bar
+        // Bottom navigation bar
         bottomNavigationBar: const BottomNavBar(currentIndex: 1),
       ),
     );
@@ -252,7 +228,7 @@ class FlashSaleImagesWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return const PurchasePage();
+                  return ProductPage(productID: 'alarm_clock');
                 },
               ),
             );
@@ -314,7 +290,7 @@ class FlashSaleImagesWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return const PurchasePage();
+                  return ProductPage(productID: 'headphones');
                 },
               ),
             );
@@ -376,7 +352,7 @@ class FlashSaleImagesWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return const PurchasePage();
+                  return ProductPage(productID: 'kodak_polaroid_camera');
                 },
               ),
             );
@@ -476,23 +452,26 @@ class _MessageLoopState extends State<MessageLoop> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.9,
-      height: MediaQuery.of(context).size.height * 0.08,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
-        child: Center(
-          child: Text(
-            messages[currentIndex],
-            textAlign: TextAlign.center, // Center align the text
-            style: const TextStyle(
-              color: Colors.red,
-              fontWeight: FontWeight.bold,
-              fontSize: 17,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.9,
+        height: MediaQuery.of(context).size.height * 0.08,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: Center(
+            child: Text(
+              messages[currentIndex],
+              textAlign: TextAlign.center, // Center align the text
+              style: const TextStyle(
+                color: Color.fromARGB(255, 255, 23, 7),
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
             ),
           ),
         ),
