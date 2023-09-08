@@ -5,8 +5,8 @@ import 'package:tiktok_hackers/components/features_horizontal.dart';
 import 'package:tiktok_hackers/pages/purchase_page.dart';
 
 class ShopPage extends StatefulWidget {
-  const ShopPage({super.key, required this.title});
-  final String title;
+  final String? newOrder;
+  const ShopPage({super.key, this.newOrder});
 
   @override
   State<ShopPage> createState() => _ShopPageState();
@@ -50,6 +50,11 @@ class _ShopPageState extends State<ShopPage> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 0,
@@ -70,7 +75,9 @@ class _ShopPageState extends State<ShopPage> {
             ),
             FeaturesHorizontal(),
             // create a section that pops up one message every few seconds
-            const MessageLoop(),
+            MessageLoop(
+              newOrder: widget.newOrder,
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -106,48 +113,61 @@ class _ShopPageState extends State<ShopPage> {
                 children: List.generate(4, (index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: MediaQuery.of(context).size.width * 0.5,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.grey.shade100,
-                      ),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              alignment: Alignment.center,
-                              height: MediaQuery.of(context).size.width * 0.35,
-                              width: MediaQuery.of(context).size.width * 0.4,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                image: DecorationImage(
-                                  image: images[index],
-                                  fit: BoxFit.cover,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const PurchasePage();
+                            },
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.width * 0.5,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.grey.shade100,
+                        ),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.35,
+                                width: MediaQuery.of(context).size.width * 0.4,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  image: DecorationImage(
+                                    image: images[index],
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              // 'Item $index',
-                              // give random price number
-                              productLabel[index] + ' \$${index + 1}',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headlineSmall!
-                                  .copyWith(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w700),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                          ],
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                // 'Item $index',
+                                // give random price number
+                                productLabel[index] + ' \$${index + 1}',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall!
+                                    .copyWith(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w700),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -288,102 +308,126 @@ class FlashSaleImagesWidget extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        Column(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.width * 0.25,
-              width: MediaQuery.of(context).size.width * 0.25,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/headphones.jpg'),
-                  fit: BoxFit.cover,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const PurchasePage();
+                },
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.width * 0.25,
+                width: MediaQuery.of(context).size.width * 0.25,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/headphones.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        // make background red
+                        decoration: BoxDecoration(
+                          color: Colors.red.shade500,
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(10)),
+                        ),
+                        child: const Text(
+                          "  Hot ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      // make background red
-                      decoration: BoxDecoration(
-                        color: Colors.red.shade500,
-                        borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(10)),
-                      ),
-                      child: const Text(
-                        "  Hot ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15,
-                            color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
+              const SizedBox(
+                height: 10,
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              "@benjamin",
-              textAlign: TextAlign.start,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
-            )
-          ],
+              const Text(
+                "@benjamin",
+                textAlign: TextAlign.start,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
+              )
+            ],
+          ),
         ),
         const SizedBox(
           width: 10,
         ),
-        Column(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.width * 0.25,
-              width: MediaQuery.of(context).size.width * 0.25,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/polaroid.jpg'),
-                  fit: BoxFit.cover,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const PurchasePage();
+                },
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.width * 0.25,
+                width: MediaQuery.of(context).size.width * 0.25,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/polaroid.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        // make background red
+                        decoration: BoxDecoration(
+                          color: Colors.red.shade500,
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(10)),
+                        ),
+                        child: const Text(
+                          "  Hot ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      // make background red
-                      decoration: BoxDecoration(
-                        color: Colors.red.shade500,
-                        borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(10)),
-                      ),
-                      child: const Text(
-                        "  Hot ",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15,
-                            color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
+              const SizedBox(
+                height: 10,
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              "@sourick",
-              textAlign: TextAlign.start,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
-            )
-          ],
+              const Text(
+                "@sourick",
+                textAlign: TextAlign.start,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
+              )
+            ],
+          ),
         ),
         const SizedBox(
           width: 10,
@@ -394,7 +438,8 @@ class FlashSaleImagesWidget extends StatelessWidget {
 }
 
 class MessageLoop extends StatefulWidget {
-  const MessageLoop({super.key});
+  final String? newOrder;
+  const MessageLoop({super.key, this.newOrder});
 
   @override
   _MessageLoopState createState() => _MessageLoopState();
@@ -412,6 +457,11 @@ class _MessageLoopState extends State<MessageLoop> {
   @override
   void initState() {
     super.initState();
+    if (widget.newOrder != null) {
+      // messages.add(widget.newOrder!);
+      // add new order to the top of the list
+      messages.insert(0, widget.newOrder!);
+    }
     startMessageLoop();
   }
 

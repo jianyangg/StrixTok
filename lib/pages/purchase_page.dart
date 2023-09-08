@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:slide_action/slide_action.dart';
+import 'package:tiktok_hackers/pages/purchase_confirmation_page.dart';
 
 // this class simulates purchase of the product
 class PurchasePage extends StatefulWidget {
@@ -66,7 +67,7 @@ class _PurchasePageState extends State<PurchasePage> {
                   return Container(
                     margin: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: Colors.grey.shade600,
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: const Center(
@@ -78,8 +79,11 @@ class _PurchasePageState extends State<PurchasePage> {
                   );
                 },
                 action: () {
-                  // show dialog
                   debugPrint("Hello World");
+                  // show dialog
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const PurchaseConfirmationPage();
+                  }));
                 },
               ),
             ),
