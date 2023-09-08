@@ -155,7 +155,7 @@ class _ShopPageState extends State<ShopPage> {
                               Text(
                                 // 'Item $index',
                                 // give random price number
-                                productLabel[index] + ' \$${index + 1}',
+                                '${productLabel[index]} \$${index + 1}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .headlineSmall!

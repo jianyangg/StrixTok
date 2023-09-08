@@ -40,9 +40,11 @@ class _PurchaseConfirmationPageState extends State<PurchaseConfirmationPage> {
                   height: 40,
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey.shade300, // Border color
-                      width: 2.0, // Border width
+                    // only top and bottom borders
+                    border: Border(
+                      top: BorderSide(width: 0.5, color: Colors.grey.shade400),
+                      bottom:
+                          BorderSide(width: 0.5, color: Colors.grey.shade400),
                     ),
                     color: Colors.white, // Background color
                   ),
@@ -55,6 +57,16 @@ class _PurchaseConfirmationPageState extends State<PurchaseConfirmationPage> {
                               "TestUser just bought a new item 5 seconds ago!",
                         );
                       }));
+                      // show snack bar
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                            'Order shared!',
+                            textAlign: TextAlign.center,
+                          ),
+                          duration: Duration(seconds: 1),
+                        ),
+                      );
                     },
                     child: const Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -79,9 +91,10 @@ class _PurchaseConfirmationPageState extends State<PurchaseConfirmationPage> {
                   height: 40,
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey.shade300, // Border color
-                      width: 2.0, // Border width
+                    border: Border(
+                      top: BorderSide(width: 0.5, color: Colors.grey.shade400),
+                      bottom:
+                          BorderSide(width: 0.5, color: Colors.grey.shade400),
                     ),
                     color: Colors.white, // Background color
                   ),

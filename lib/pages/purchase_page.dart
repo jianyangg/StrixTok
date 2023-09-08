@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:slide_action/slide_action.dart';
 import 'package:tiktok_hackers/pages/purchase_confirmation_page.dart';
@@ -46,10 +44,11 @@ class _PurchasePageState extends State<PurchasePage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SlideAction(
+                thumbWidth: 90,
                 trackBuilder: (context, state) {
                   return Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(30),
                       color: Colors.white,
                       boxShadow: const [
                         BoxShadow(
@@ -58,7 +57,7 @@ class _PurchasePageState extends State<PurchasePage> {
                         ),
                       ],
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text("Swipe to purchase"),
                     ),
                   );
@@ -68,7 +67,7 @@ class _PurchasePageState extends State<PurchasePage> {
                     margin: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
                       color: Colors.grey.shade600,
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                     child: const Center(
                       child: Icon(

@@ -66,6 +66,7 @@ flutter:
     - assets/images/polaroid.jpg
     - assets/images/dice.jpeg
     - assets/images/measure.jpeg
+    - assets/images/account_image.jpg
     - assets/images/toaster.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
