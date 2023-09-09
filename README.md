@@ -6,7 +6,19 @@ Welcome to StrixTok, a powerful solution that elevates your TikTok Shop experien
 
 Download the beta version of the app [here](https://testflight.apple.com/join/5qkKO2OO).
 
-## Features
+## Preventing Abuse of Review Incentives with Advanced Computer Vision Techniques
+
+Check out our CV model's GitHub Repo [here](https://github.com/B-enguin/StrixTok-Validator).
+
+StrixTok incorporates a robust Product Validation Computer Vision Model to thwart misuse and ensure the authenticity of reviews. Employing zero-shot learning and a CLIPSeg backbone, this model identifies the presence of the reviewed product using object segmentation and careful filtering.
+
+Example:
+- Step 1. User Gabriel posts a video review of his newly acquired headphones.
+- Step 2. StrixTok's computer vision model diligently confirms that the headphones are indeed featured in the video.
+- Step 3. The video is subjected to approval or rejection, and TikTok coins are distributed accordingly.
+- Step 4. Users can also track whether their friends have purchased the same featured product, fostering a sense of community and shared interests.
+
+## Other App Features
 
 1. Real-time Social Purchase Bulletin
 Inside TikTok Shop, users can access the "Live Board," a dynamic feature that provides real-time updates on your friends' latest purchases. With the effect of social influence and social proof, this feature encourages users to make informed buying decisions that are endorsed by their friends.
@@ -26,15 +38,6 @@ StrixTok proposes the use of TikTok coins as incentives for users to create high
 
 1. Leave Comprehensive Reviews: Upon receiving their purchased items, users can contribute reviews. These reviews can take the form of text, video content shared with their followers, or public video reviews. The extent of outreach directly impacts the number of TikTok coins earned.
 
-## Preventing Abuse of Review Incentives with Advanced Computer Vision Techniques
-
-StrixTok incorporates a robust Product Validation Computer Vision Model to thwart misuse and ensure the authenticity of reviews. Employing zero-shot learning and a CLIPSeg backbone, this model identifies the presence of the reviewed product using object segmentation and careful filtering.
-
-Example:
-- Step 1. User Gabriel posts a video review of his newly acquired headphones.
-- Step 2. StrixTok's computer vision model diligently confirms that the headphones are indeed featured in the video.
-- Step 3. The video is subjected to approval or rejection, and TikTok coins are distributed accordingly.
-- Step 4. Users can also track whether their friends have purchased the same featured product, fostering a sense of community and shared interests.
 
 ## User Profiles
 
