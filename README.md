@@ -1,6 +1,6 @@
 # StrixTok: Enhancing Your TikTok Shopping Experience
 
-Welcome to StrixTok, a powerful solution that elevates your TikTok Shop experience. StrixTok integrates a cutting-edge computer vision-driven product validation tool and a social referral feature, ensuring that product reviews are reliable, informative, and engaging for potential buyers.
+Welcome to StrixTok, a powerful solution that elevates your TikTok Shop experience. StrixTok integrates a cutting-edge computer vision-driven product validation tool and a social referral feature, ensuring that product reviews are reliable, informative, and engaging for potential buyers. Watch the demonstration on [YouTube](https://youtu.be/lAJ49i49GWM).
 
 ## Installation
 
