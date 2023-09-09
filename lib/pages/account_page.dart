@@ -68,7 +68,7 @@ class _AccountPageState extends State<AccountPage>
               ),
               const SizedBox(height: 10),
               const Text(
-                'Bio: Your bio goes here', // Replace with the user's bio
+                'Bio: I\'m participating in the TikTok hackathon', // Replace with the user's bio
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,

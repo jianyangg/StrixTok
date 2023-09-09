@@ -47,7 +47,7 @@ class ProductsWidget extends StatelessWidget {
               ListTile(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const ProductReviewPage(productID: "alarm_clock");
+                    return const ProductReviewPage(productID: "Clock");
                   }));
                 },
                 contentPadding:
@@ -80,7 +80,7 @@ class ProductsWidget extends StatelessWidget {
               ListTile(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const ProductReviewPage(productID: "dice_in_dice");
+                    return const ProductReviewPage(productID: "Dice");
                   }));
                 },
                 contentPadding:
@@ -113,7 +113,7 @@ class ProductsWidget extends StatelessWidget {
               ListTile(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const ProductReviewPage(productID: "headphones");
+                    return const ProductReviewPage(productID: "Headphones");
                   }));
                 },
                 contentPadding:
@@ -146,7 +146,7 @@ class ProductsWidget extends StatelessWidget {
               ListTile(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const ProductReviewPage(productID: "measuring_tape");
+                    return const ProductReviewPage(productID: "Measuring Tape");
                   }));
                 },
                 contentPadding:
@@ -179,8 +179,7 @@ class ProductsWidget extends StatelessWidget {
               ListTile(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const ProductReviewPage(
-                        productID: "kodak_polaroid_camera");
+                    return const ProductReviewPage(productID: "Polaroid");
                   }));
                 },
                 contentPadding:
@@ -213,7 +212,7 @@ class ProductsWidget extends StatelessWidget {
               ListTile(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const ProductReviewPage(productID: "smeg_toaster");
+                    return const ProductReviewPage(productID: "Toaster");
                   }));
                 },
                 contentPadding:

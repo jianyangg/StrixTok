@@ -9,17 +9,17 @@ class ProductReviewPage extends StatelessWidget {
   // function to return the image of the product
   AssetImage getProductImage(String productID) {
     switch (productID) {
-      case "alarm_clock":
+      case "Clock":
         return const AssetImage('assets/images/clock.jpg');
-      case "dice_in_dice":
+      case "Dice":
         return const AssetImage('assets/images/dice.jpeg');
-      case "headphones":
+      case "Headphones":
         return const AssetImage('assets/images/headphones.jpg');
-      case "measuring_tape":
+      case "Measuring Tape":
         return const AssetImage('assets/images/measure.jpeg');
-      case "kodak_polaroid_camera":
+      case "Polaroid":
         return const AssetImage('assets/images/polaroid.jpg');
-      case "smeg_toaster":
+      case "Toaster":
         return const AssetImage('assets/images/toaster.jpeg');
       default:
         return const AssetImage('assets/images/clock.jpg');
@@ -28,17 +28,17 @@ class ProductReviewPage extends StatelessWidget {
 
   String getProductName(String productID) {
     switch (productID) {
-      case "alarm_clock":
+      case "Clock":
         return "Alarm Clock";
-      case "dice_in_dice":
+      case "Dice":
         return "Dice in Dice";
-      case "headphones":
+      case "Headphones":
         return "Sony Headphones";
-      case "measuring_tape":
+      case "Measuring Tape":
         return "Measuring Tape";
-      case "kodak_polaroid_camera":
+      case "Polaroid":
         return "Kodak Polaroid Camera";
-      case "smeg_toaster":
+      case "Toaster":
         return "Smeg Toaster";
       default:
         return "Alarm Clock";

@@ -94,9 +94,35 @@ class FilmVideoPage extends StatelessWidget {
                   ),
                 ),
               ),
-              child: const Text('Submit'),
+              child: const Text('Test: Upload'),
             ),
           ),
+          // reject button
+          if (reviewType != null)
+            Positioned(
+              bottom: 50,
+              left: 50,
+              child: ElevatedButton(
+                onPressed: () {
+                  // show snack bar saying that video was rejected
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Video rejected. No product detected.'),
+                    ),
+                  );
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.red),
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                child: const Text('Test: Reject Video'),
+              ),
+            ),
         ],
       ),
       bottomNavigationBar: const BottomNavBar(currentIndex: 2),
