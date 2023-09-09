@@ -4,7 +4,7 @@ Welcome to StrixTok, a powerful solution that elevates your TikTok Shop experien
 
 ## Installation
 
-Download the beta version of the app [here](https://testflight.apple.com/join/5qkKO2OO).
+Download the beta version of the app [here](https://testflight.apple.com/join/5qkKO2OO) (if build is isn't accepting new users, it's likely that the beta app is still under review by Apple. Check back again in a few hours!).
 
 ## Preventing Abuse of Review Incentives with Advanced Computer Vision Techniques
 
@@ -46,6 +46,10 @@ Within the user profile section, StrixTok showcases a user's purchase history an
 ## Conclusion
 
 StrixTok has the potential to redefine the TikTok Shop experience or that of any e-commerce site, offering a more engaging, reliable, and interactive shopping journey. We invite you to explore our StrixTok app. 
+
+## Team note
+
+This prototype was churned out amidst our busy schedules, squeezing out a few hours of our time at night over the course of 3 days. It's thus a necessary compromise that the code quality is not where it could and should be. However, with what limited time we had, we think it effectively demonstrates what we had in mind.
 
 
 ---
