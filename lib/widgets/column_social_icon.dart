@@ -31,11 +31,11 @@ Widget getAlbum(albumImg) {
   );
 }
 
-Widget getIcons(icon, count, size) {
+Widget getIcons(icon, count, size, liked) {
   return Container(
     child: Column(
       children: <Widget>[
-        Icon(icon, color: white, size: size),
+        Icon(icon, color: liked ? primary : white, size: size),
         SizedBox(
           height: 5,
         ),

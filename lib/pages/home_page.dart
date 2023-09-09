@@ -21,6 +21,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  bool liked = false;
   @override
   void initState() {
     // TODO: implement initState
@@ -69,6 +70,7 @@ class _HomePageState extends State<HomePage>
           comments: items[0]['comments'],
           shares: items[0]['shares'],
           albumImg: items[0]['albumImg'],
+          liked: liked,
         ),
       );
     }
@@ -87,15 +89,23 @@ class _HomePageState extends State<HomePage>
           comments: items[index]['comments'],
           shares: items[index]['shares'],
           albumImg: items[index]['albumImg'],
+          liked: liked,
         ),
       );
     }
 
-    return RotatedBox(
-      quarterTurns: 1,
-      child: TabBarView(
-        controller: _tabController,
-        children: videoItems,
+    return GestureDetector(
+      onDoubleTap: () {
+        setState(() {
+          liked = true;
+        });
+      },
+      child: RotatedBox(
+        quarterTurns: 1,
+        child: TabBarView(
+          controller: _tabController,
+          children: videoItems,
+        ),
       ),
     );
   }
@@ -111,19 +121,21 @@ class VideoPlayerItem extends StatefulWidget {
   final String comments;
   final String shares;
   final String albumImg;
-  VideoPlayerItem(
-      {Key? key,
-      required this.size,
-      required this.name,
-      required this.caption,
-      required this.songName,
-      required this.profileImg,
-      required this.likes,
-      required this.comments,
-      required this.shares,
-      required this.albumImg,
-      required this.videoUrl})
-      : super(key: key);
+  final bool liked;
+  VideoPlayerItem({
+    Key? key,
+    required this.size,
+    required this.name,
+    required this.caption,
+    required this.songName,
+    required this.profileImg,
+    required this.likes,
+    required this.comments,
+    required this.shares,
+    required this.albumImg,
+    required this.videoUrl,
+    required this.liked,
+  }) : super(key: key);
 
   final Size size;
 
@@ -232,6 +244,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                                   shares: widget.shares,
                                   profileImg: widget.profileImg,
                                   albumImg: widget.albumImg,
+                                  liked: widget.liked,
                                 )
                               ],
                             ))
@@ -254,6 +267,7 @@ class RightPanel extends StatelessWidget {
   final String shares;
   final String profileImg;
   final String albumImg;
+  final bool liked;
   const RightPanel({
     Key? key,
     required this.size,
@@ -262,6 +276,7 @@ class RightPanel extends StatelessWidget {
     required this.shares,
     required this.profileImg,
     required this.albumImg,
+    required this.liked,
   }) : super(key: key);
 
   final Size size;
@@ -281,9 +296,9 @@ class RightPanel extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 getProfile(profileImg),
-                getIcons(TikTokIcons.heart, likes, 35.0),
-                getIcons(TikTokIcons.chat_bubble, comments, 35.0),
-                getIcons(TikTokIcons.reply, shares, 25.0),
+                getIcons(TikTokIcons.heart, likes, 35.0, liked),
+                getIcons(TikTokIcons.chat_bubble, comments, 35.0, false),
+                getIcons(TikTokIcons.reply, shares, 25.0, false),
                 getAlbum(albumImg)
               ],
             ))
