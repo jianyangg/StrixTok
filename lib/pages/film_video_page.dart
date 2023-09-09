@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tiktok_hackers/components/bottom_nav_bar.dart';
+import 'package:tiktok_hackers/pages/home_page.dart';
 
 class FilmVideoPage extends StatelessWidget {
   const FilmVideoPage({Key? key, this.reviewType}) : super(key: key);
@@ -49,19 +50,39 @@ class FilmVideoPage extends StatelessWidget {
                     ),
                   ],
                 ),
-          // Upload Button
+          // Submit Button
           Positioned(
-            bottom: 40,
-            right: 20,
+            bottom: 50,
+            right: 50,
             child: ElevatedButton(
-              onPressed: () async {
-                // Handle the upload button's onPressed event here
-                // open gallery
-                // upload video
-                // save video locally
-                final pickedFile = await ImagePicker().pickMedia();
-                if (pickedFile != null) {
-                  // TODO: save video / upload to Firebase
+              onPressed: () {
+                // simulate adding of video to feed.
+                // show snack bar
+                if (reviewType != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                        content: reviewType == "Shared with followers"
+                            ? const Text(
+                                'Video approved and shared with followers! 500 coins awarded.')
+                            : const Text(
+                                'Video approved and shared to the public feed! 1000 coins awarded.')),
+                  );
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              HomePage(showReviewVideo: true)));
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text(
+                            'Simulate normal non-review TikTok video being added.')),
+                  );
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              HomePage(showReviewVideo: false)));
                 }
               },
               style: ButtonStyle(
@@ -73,33 +94,7 @@ class FilmVideoPage extends StatelessWidget {
                   ),
                 ),
               ),
-              child: const Text('Upload Video'),
-            ),
-          ),
-          Positioned(
-            bottom: 40,
-            left: 40,
-            child: ElevatedButton(
-              onPressed: () async {
-                // Handle the upload button's onPressed event here
-                // open gallery
-                // upload video
-                // save video locally
-                final pickedFile = await ImagePicker().pickMedia();
-                if (pickedFile != null) {
-                  // TODO: save video / upload to Firebase
-                }
-              },
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white),
-                foregroundColor: MaterialStateProperty.all(Colors.black),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              child: const Text('Effects'),
+              child: const Text('Submit'),
             ),
           ),
         ],

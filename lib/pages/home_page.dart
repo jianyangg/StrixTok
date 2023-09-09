@@ -12,6 +12,8 @@ import 'package:video_player/video_player.dart';
 // later on, we will fetch videos from our cloud storage
 
 class HomePage extends StatefulWidget {
+  bool? showReviewVideo = false;
+  HomePage({Key? key, this.showReviewVideo}) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -24,7 +26,11 @@ class _HomePageState extends State<HomePage>
     // TODO: implement initState
     super.initState();
 
-    _tabController = TabController(length: items.length, vsync: this);
+    int len = widget.showReviewVideo != null && widget.showReviewVideo!
+        ? items.length
+        : items.length - 1;
+
+    _tabController = TabController(length: len, vsync: this);
   }
 
   @override
@@ -46,24 +52,50 @@ class _HomePageState extends State<HomePage>
 
   Widget getBody() {
     var size = MediaQuery.of(context).size;
+    List<Widget> videoItems = [];
+
+    // Check if showVideoReview is true
+    if (widget.showReviewVideo != null && widget.showReviewVideo!) {
+      // Show the video at index 0
+      videoItems.add(
+        VideoPlayerItem(
+          videoUrl: items[0]['videoUrl'],
+          size: size,
+          name: items[0]['name'],
+          caption: items[0]['caption'],
+          songName: items[0]['songName'],
+          profileImg: items[0]['profileImg'],
+          likes: items[0]['likes'],
+          comments: items[0]['comments'],
+          shares: items[0]['shares'],
+          albumImg: items[0]['albumImg'],
+        ),
+      );
+    }
+
+    // Show the rest of the videos starting from index 1
+    for (int index = 1; index < items.length; index++) {
+      videoItems.add(
+        VideoPlayerItem(
+          videoUrl: items[index]['videoUrl'],
+          size: size,
+          name: items[index]['name'],
+          caption: items[index]['caption'],
+          songName: items[index]['songName'],
+          profileImg: items[index]['profileImg'],
+          likes: items[index]['likes'],
+          comments: items[index]['comments'],
+          shares: items[index]['shares'],
+          albumImg: items[index]['albumImg'],
+        ),
+      );
+    }
+
     return RotatedBox(
       quarterTurns: 1,
       child: TabBarView(
         controller: _tabController,
-        children: List.generate(items.length, (index) {
-          return VideoPlayerItem(
-            videoUrl: items[index]['videoUrl'],
-            size: size,
-            name: items[index]['name'],
-            caption: items[index]['caption'],
-            songName: items[index]['songName'],
-            profileImg: items[index]['profileImg'],
-            likes: items[index]['likes'],
-            comments: items[index]['comments'],
-            shares: items[index]['shares'],
-            albumImg: items[index]['albumImg'],
-          );
-        }),
+        children: videoItems,
       ),
     );
   }

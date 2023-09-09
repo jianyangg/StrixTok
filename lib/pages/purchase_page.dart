@@ -4,7 +4,8 @@ import 'package:tiktok_hackers/pages/purchase_confirmation_page.dart';
 
 // this class simulates purchase of the product
 class PurchasePage extends StatefulWidget {
-  const PurchasePage({super.key});
+  final String productID;
+  const PurchasePage({super.key, required this.productID});
 
   @override
   State<PurchasePage> createState() => _PurchasePageState();
@@ -81,7 +82,8 @@ class _PurchasePageState extends State<PurchasePage> {
                   debugPrint("Hello World");
                   // show dialog
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const PurchaseConfirmationPage();
+                    return PurchaseConfirmationPage(
+                        productID: widget.productID);
                   }));
                 },
               ),

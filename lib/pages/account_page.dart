@@ -31,15 +31,15 @@ class _AccountPageState extends State<AccountPage>
 
   // Replace with the actual list of shopping activity
   final List<String> shoppingActivityList = [
-    'YuJi liked "Sony Headphones"',
-    'YuJi purchased "Sony PlayStation 5"',
-    'YuJi liked "Apple AirPods"',
-    'YuJi purchased Apple Pencil"',
-    'YuJi liked "Apple Watch"',
-    'YuJi liked "Apple iPhone 12"',
-    'Yuji purchased "Strix GeForce RTX 3090"',
-    'YuJi liked "Apple MacBook Pro"',
-    'YuJi liked "Apple iPad Pro"',
+    'TestUser liked "Sony Headphones"',
+    'TestUser purchased "Sony PlayStation 5"',
+    'TestUser liked "Apple AirPods"',
+    'TestUser purchased Apple Pencil"',
+    'TestUser liked "Apple Watch"',
+    'TestUser liked "Apple iPhone 12"',
+    'TestUser purchased "Strix GeForce RTX 3090"',
+    'TestUser liked "Apple MacBook Pro"',
+    'TestUser liked "Apple iPad Pro"',
   ];
 
   @override
@@ -60,7 +60,7 @@ class _AccountPageState extends State<AccountPage>
               ),
               const SizedBox(height: 20),
               const Text(
-                '@yuji5', // Replace with the user's actual username
+                '@TestUser5', // Replace with the user's actual username
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -209,7 +209,7 @@ class _AccountPageState extends State<AccountPage>
                   ),
                   Tab(
                     icon: Icon(
-                      Icons.check_circle_outline,
+                      Icons.favorite_border_outlined,
                     ),
                   ),
                   Tab(
@@ -292,7 +292,9 @@ class _AccountPageState extends State<AccountPage>
                           .length, // Replace with the actual list of shopping activity
                       itemBuilder: (context, index) {
                         return ShoppingActivityItem(
-                            activity: shoppingActivityList[index]);
+                          activity: shoppingActivityList[index],
+                          minutes: (index + 1) * 2,
+                        );
                       },
                     ),
                   ],
@@ -309,8 +311,10 @@ class _AccountPageState extends State<AccountPage>
 
 class ShoppingActivityItem extends StatelessWidget {
   final String activity;
+  final int minutes;
 
-  const ShoppingActivityItem({Key? key, required this.activity})
+  const ShoppingActivityItem(
+      {Key? key, required this.activity, required this.minutes})
       : super(key: key);
 
   @override
@@ -318,7 +322,7 @@ class ShoppingActivityItem extends StatelessWidget {
     return ListTile(
       leading: Icon(Icons.shopping_bag),
       title: Text(activity),
-      subtitle: Text('3 minutes ago'), // Replace with actual timestamp
+      subtitle: Text('$minutes minutes ago'), // Replace with actual timestamp
       onTap: () {
         // Handle tapping on the shopping activity item
       },

@@ -228,7 +228,7 @@ class FlashSaleImagesWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return ProductPage(productID: 'alarm_clock');
+                  return ProductPage(productID: 'Clock');
                 },
               ),
             );
@@ -290,7 +290,7 @@ class FlashSaleImagesWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return ProductPage(productID: 'headphones');
+                  return ProductPage(productID: 'Headphones');
                 },
               ),
             );
@@ -352,7 +352,7 @@ class FlashSaleImagesWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return ProductPage(productID: 'kodak_polaroid_camera');
+                  return ProductPage(productID: 'Polaroid');
                 },
               ),
             );
@@ -423,7 +423,7 @@ class MessageLoop extends StatefulWidget {
 
 class _MessageLoopState extends State<MessageLoop> {
   final List<String> messages = <String>[
-    'Sourick just bought his rash cream from Watson 5 minutes ago!',
+    'Sourick just bought his bonsai plant from BotanicGardens 5 minutes ago!',
     'Gabriel just purchased his new pants from Zara 12 minutes ago!',
     'Ben just purchased his new Sony A7IV from Sony 15 minutes ago!'
   ];

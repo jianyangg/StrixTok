@@ -4,7 +4,8 @@ import 'package:tiktok_hackers/pages/home_page.dart';
 import 'package:tiktok_hackers/pages/shop_page.dart';
 
 class PurchaseConfirmationPage extends StatefulWidget {
-  const PurchaseConfirmationPage({super.key});
+  final String productID;
+  const PurchaseConfirmationPage({super.key, required this.productID});
 
   @override
   State<PurchaseConfirmationPage> createState() =>
@@ -61,9 +62,9 @@ class _PurchaseConfirmationPageState extends State<PurchaseConfirmationPage> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const ShopPage(
+                        return ShopPage(
                           newOrder:
-                              "TestUser just bought a new item 5 seconds ago!",
+                              "TestUser just bought a ${widget.productID}!",
                         );
                       }));
                       // show snack bar
