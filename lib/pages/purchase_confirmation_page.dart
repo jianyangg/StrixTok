@@ -71,7 +71,7 @@ class _PurchaseConfirmationPageState extends State<PurchaseConfirmationPage> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text(
-                            'Order shared!',
+                            'Order shared! 100 coins awarded.',
                             textAlign: TextAlign.center,
                           ),
                           duration: Duration(seconds: 1),

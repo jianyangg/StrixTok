@@ -71,6 +71,7 @@ class _HomePageState extends State<HomePage>
           shares: items[0]['shares'],
           albumImg: items[0]['albumImg'],
           liked: liked,
+          advertisement: items[0]['advertisement'],
         ),
       );
     }
@@ -90,6 +91,7 @@ class _HomePageState extends State<HomePage>
           shares: items[index]['shares'],
           albumImg: items[index]['albumImg'],
           liked: liked,
+          advertisement: items[index]['advertisement'],
         ),
       );
     }
@@ -122,6 +124,7 @@ class VideoPlayerItem extends StatefulWidget {
   final String shares;
   final String albumImg;
   final bool liked;
+  final String advertisement;
   VideoPlayerItem({
     Key? key,
     required this.size,
@@ -135,6 +138,7 @@ class VideoPlayerItem extends StatefulWidget {
     required this.albumImg,
     required this.videoUrl,
     required this.liked,
+    required this.advertisement,
   }) : super(key: key);
 
   final Size size;
@@ -236,6 +240,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                                   name: widget.name,
                                   caption: widget.caption,
                                   songName: widget.songName,
+                                  advertisement: widget.advertisement,
                                 ),
                                 RightPanel(
                                   size: widget.size,

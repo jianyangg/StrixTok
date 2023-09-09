@@ -5,12 +5,14 @@ class LeftPanel extends StatelessWidget {
   final String name;
   final String caption;
   final String songName;
+  final String advertisement;
   const LeftPanel({
     Key? key,
     required this.size,
     required this.name,
     required this.caption,
     required this.songName,
+    required this.advertisement,
   }) : super(key: key);
 
   final Size size;
@@ -32,6 +34,25 @@ class LeftPanel extends StatelessWidget {
           ),
           SizedBox(
             height: 10,
+          ),
+          Visibility(
+            visible: advertisement
+                .isNotEmpty, // Show the red container if there's text in 'advertisement'
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20.0), // Rounded edges
+              child: Container(
+                color: Colors.red, // Red background for advertisement
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    advertisement,
+                    style: TextStyle(
+                      color: white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
           Text(
             caption,

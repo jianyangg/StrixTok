@@ -205,7 +205,7 @@ class _ProductPageState extends State<ProductPage> {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.red),
                 ),
-                child: const Text('Buy now'),
+                child: const Text('Buy with TikTok coins'),
               ),
             ),
             // Additional Product Information
