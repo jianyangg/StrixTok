@@ -43,3 +43,41 @@ Within the user profile section, StrixTok showcases a user's purchase history an
 ## Conclusion
 
 StrixTok has the potential to redefine the TikTok Shop experience or that of any e-commerce site, offering a more engaging, reliable, and interactive shopping journey. We invite you to explore our StrixTok app. 
+
+
+---
+
+# DevPost Description
+
+## 💛 Introducing StrixTok 💛
+🤔 🎧 As you stare at that enticing pair of headphones nestled in your online shopping cart, a barrage of questions flood your thoughts:
+
+💭 "Does it sound as amazing as it looks?" 
+"Does it LOOK as amazing as it looks on the advertisement?" 
+"I wonder where my bestie Jun Jie got his headphones from last week." 
+"Will the headphones truly match my vibe?" 
+
+🛒 Decision-making can be a mess when embarking on the arduous journey of online shopping. Within the maze of uncertainties, how can you ensure that what you see is what you truly get?
+
+🌟 **Introducing to you StrixTok, where reviews meet social engagement for an authentic and reliable shopping experience!**
+
+## What it does
+🛍️ StrixTok is a **computer vision-driven product validation tool & social referral feature integrated within TikTok Shop** that ensures that product reviews are truly of quality and reliable for potential buyers, allowing for reviews to be targeted to the buyer's followers to increase TikTok Shop traffic.
+
+StrixTok efficaciously addresses status quo concerns of difficulties in ensuring quality and relevant reviews and lack of social integration into TikTok Shop by boosting user conversion & consumer confidence in successful purchases.
+
+Upon product purchase and receipt from TikTok Shop, buyers are prompted to share their purchase review with their followers (textual or video, incentivised by TikTok Coins), which enables the shopper's inner circle to be informed of their purchases on a dynamic social purchase bulletin on TikTok Shop, spurring shopping FOMO among users new to TikTok Shop.
+
+Our computer vision model steps in for the product reviews as well as advertisement-product fidelity, to ensure that the product displayed in reviews and advertisements are legitimate and exactly what the seller is selling. Coupled with the social purchase bulletin feature, this allows buyer to be more confident in their purchase decisions driving greater transaction volumes within TikTok Shop.
+
+## How we built it
+👀 The computer vision product validation model works through a zero-shot learning approach, was built with a CLIPSeg backbone to identify the presence of the reviewed item using object segmentation to select regions of interest, followed by filtering to confirm the object.
+
+👬 The Social Commerce interface was spearheaded using Flutter to illustrate the user flow and feature implementation in the context of TikTok's UI.
+
+## What's next for StrixTok
+🌱 Besides optimisation, the scalability and refinement of the CV model is something that can be leveraged upon and applied in a variety of use cases (risk-management, tagging, content-moderation, TikTok live-tracking, recommendations, e.t.c.) and the aspect of leveraging on social involvement from existing profile followers is a great vantage point to spur greater TikTok Shop traffic through more targeted yet organic efforts.
+
+
+
+
