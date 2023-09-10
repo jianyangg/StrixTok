@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/pages/add_review_page.dart';
-import 'package:tiktok_hackers/pages/purchase_page.dart';
-import 'package:tiktok_hackers/pages/shop_page.dart';
+import 'package:strix_tok/pages/add_review_page.dart';
+import 'package:strix_tok/pages/purchase_page.dart';
+import 'package:strix_tok/pages/shop_page.dart';
 import 'package:video_player/video_player.dart';
 
 class ProductPage extends StatefulWidget {

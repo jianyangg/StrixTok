@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/pages/account_page.dart';
-import 'package:tiktok_hackers/pages/film_video_page.dart';
-import 'package:tiktok_hackers/pages/home_page.dart' as homePage;
-import 'package:tiktok_hackers/pages/inbox_page.dart';
-import 'package:tiktok_hackers/pages/shop_page.dart';
-import 'package:tiktok_hackers/widgets/upload_icon.dart';
+import 'package:strix_tok/pages/account_page.dart';
+import 'package:strix_tok/pages/film_video_page.dart';
+import 'package:strix_tok/pages/home_page.dart' as homePage;
+import 'package:strix_tok/pages/inbox_page.dart';
+import 'package:strix_tok/pages/shop_page.dart';
+import 'package:strix_tok/widgets/upload_icon.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;

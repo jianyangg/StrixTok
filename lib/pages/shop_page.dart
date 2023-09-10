@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/components/bottom_nav_bar.dart';
-import 'package:tiktok_hackers/components/own_search_bar.dart';
-import 'package:tiktok_hackers/components/features_horizontal.dart';
-import 'package:tiktok_hackers/pages/product_page.dart';
-import 'package:tiktok_hackers/pages/purchase_page.dart';
+import 'package:strix_tok/components/bottom_nav_bar.dart';
+import 'package:strix_tok/components/own_search_bar.dart';
+import 'package:strix_tok/components/features_horizontal.dart';
+import 'package:strix_tok/pages/product_page.dart';
+import 'package:strix_tok/pages/purchase_page.dart';
 
 class ShopPage extends StatefulWidget {
   final String? newOrder;

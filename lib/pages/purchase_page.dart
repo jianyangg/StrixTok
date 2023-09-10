@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slide_action/slide_action.dart';
-import 'package:tiktok_hackers/pages/purchase_confirmation_page.dart';
+import 'package:strix_tok/pages/purchase_confirmation_page.dart';
 
 // this class simulates purchase of the product
 class PurchasePage extends StatefulWidget {

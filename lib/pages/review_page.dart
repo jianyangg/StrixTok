@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/components/bottom_nav_bar.dart';
-import 'package:tiktok_hackers/pages/product_review_page.dart';
+import 'package:strix_tok/components/bottom_nav_bar.dart';
+import 'package:strix_tok/pages/product_review_page.dart';
 
 class ReviewPage extends StatelessWidget {
   const ReviewPage({Key? key}) : super(key: key);

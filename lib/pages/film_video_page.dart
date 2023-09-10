@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tiktok_hackers/components/bottom_nav_bar.dart';
-import 'package:tiktok_hackers/pages/home_page.dart';
+import 'package:strix_tok/components/bottom_nav_bar.dart';
+import 'package:strix_tok/pages/home_page.dart';
 
 class FilmVideoPage extends StatelessWidget {
   const FilmVideoPage({Key? key, this.reviewType}) : super(key: key);

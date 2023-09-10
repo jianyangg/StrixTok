@@ -1,7 +1,7 @@
 // this page loads the purchase confirmation page.
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/pages/home_page.dart';
-import 'package:tiktok_hackers/pages/shop_page.dart';
+import 'package:strix_tok/pages/home_page.dart';
+import 'package:strix_tok/pages/shop_page.dart';
 
 class PurchaseConfirmationPage extends StatefulWidget {
   final String productID;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/components/bottom_nav_bar.dart';
-import 'package:tiktok_hackers/pages/review_page.dart';
+import 'package:strix_tok/components/bottom_nav_bar.dart';
+import 'package:strix_tok/pages/review_page.dart';
 
 class InboxPage extends StatelessWidget {
   const InboxPage({super.key});

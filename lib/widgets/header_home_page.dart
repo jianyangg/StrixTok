@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/theme/colors.dart';
+import 'package:strix_tok/theme/colors.dart';
 
 class HeaderHomePage extends StatelessWidget {
   const HeaderHomePage({

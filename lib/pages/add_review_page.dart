@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/pages/product_page.dart';
-import 'package:tiktok_hackers/pages/shop_page.dart';
+import 'package:strix_tok/pages/product_page.dart';
+import 'package:strix_tok/pages/shop_page.dart';
 
 class AddReviewPage extends StatefulWidget {
   final String productID;

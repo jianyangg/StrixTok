@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:tiktok_hackers/components/bottom_nav_bar.dart';
+import 'package:strix_tok/components/bottom_nav_bar.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);

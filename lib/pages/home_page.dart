@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/components/bottom_nav_bar.dart';
-import 'package:tiktok_hackers/constant/data_json.dart';
-import 'package:tiktok_hackers/theme/colors.dart';
-import 'package:tiktok_hackers/widgets/header_home_page.dart';
-import 'package:tiktok_hackers/widgets/column_social_icon.dart';
-import 'package:tiktok_hackers/widgets/left_panel.dart';
-import 'package:tiktok_hackers/widgets/tik_tok_icons.dart';
+import 'package:strix_tok/components/bottom_nav_bar.dart';
+import 'package:strix_tok/constant/data_json.dart';
+import 'package:strix_tok/theme/colors.dart';
+import 'package:strix_tok/widgets/header_home_page.dart';
+import 'package:strix_tok/widgets/column_social_icon.dart';
+import 'package:strix_tok/widgets/left_panel.dart';
+import 'package:strix_tok/widgets/tik_tok_icons.dart';
 import 'package:video_player/video_player.dart';
 
 // for this page, we are fetching videos locally for now

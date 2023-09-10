@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_hackers/pages/film_video_page.dart';
-import 'package:tiktok_hackers/pages/product_page.dart';
+import 'package:strix_tok/pages/film_video_page.dart';
+import 'package:strix_tok/pages/product_page.dart';
 
 class ProductReviewPage extends StatelessWidget {
   final String productID;
