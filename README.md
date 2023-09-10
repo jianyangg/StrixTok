@@ -4,7 +4,7 @@ Welcome to StrixTok, a powerful solution that elevates your TikTok Shop experien
 
 ## Installation
 
-Download the beta version of the app [here](https://testflight.apple.com/join/5qkKO2OO) (if build is isn't accepting new users, it's likely that the beta app is still under review by Apple. Check back again in a few hours!).
+Download the beta version of the app [here](https://testflight.apple.com/join/5qkKO2OO) (if build is isn't accepting new users, it's likely that the beta app is still under review by Apple. We've fixed issues relating to keywords such as "hackathon" being used and have submitted another version for Apple's App Review. Kindly check back again in a few hours!).
 
 ## Preventing Abuse of Review Incentives with Advanced Computer Vision Techniques
 
