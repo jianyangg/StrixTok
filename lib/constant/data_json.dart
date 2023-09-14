@@ -2,7 +2,7 @@ List items = [
   {
     "videoUrl": "assets/videos/video_0.mp4",
     "name": "Gabriel Seethor",
-    "caption": "Reviweing my new JDL headphones!!",
+    "caption": "Reviewing my new JDL headphones!!",
     "songName": "original sound - Gabriel Seethor",
     "profileImg":
         "https://p16-tiktokcdn-com.akamaized.net/aweme/720x720/tiktok-obj/1663771856684033.jpeg",

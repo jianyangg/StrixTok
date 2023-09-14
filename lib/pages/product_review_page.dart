@@ -158,8 +158,10 @@ class ProductReviewPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return const FilmVideoPage(
-                          reviewType: "Shared to public feed");
+                      return FilmVideoPage(
+                        reviewType: "Shared to public feed",
+                        productID: productID,
+                      );
                     }));
                   },
                   style: ButtonStyle(
@@ -226,8 +228,10 @@ class ProductReviewPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return const FilmVideoPage(
-                          reviewType: "Shared with followers");
+                      return FilmVideoPage(
+                        reviewType: "Shared with followers",
+                        productID: productID,
+                      );
                     }));
                   },
                   style: ButtonStyle(
@@ -303,7 +307,7 @@ class ProductReviewPage extends StatelessWidget {
                   child: const Row(
                     children: [
                       Text(
-                        "Share a text review on tiktok!",
+                        "Share a text review on TikTok!",
                         textAlign: TextAlign.start,
                         style: TextStyle(color: Colors.black),
                       ),

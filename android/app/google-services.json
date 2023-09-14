@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "155028662700",
+    "project_id": "strixtok",
+    "storage_bucket": "strixtok.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155028662700:android:e712ee87e283ddbfb37209",
+        "android_client_info": {
+          "package_name": "com.example.strix_tok"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPzmbZlWbjoIlS1Hr2CRmw0z_stfPYCpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

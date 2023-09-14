@@ -183,9 +183,11 @@ class _ProductPageState extends State<ProductPage> {
                   IconButton(
                     onPressed: () {
                       // Like product logic here
-                      setState(() {
-                        liked = !liked;
-                      });
+                      if (mounted) {
+                        setState(() {
+                          liked = !liked;
+                        });
+                      }
                     },
                     icon: Icon(liked ? Icons.favorite : Icons.favorite_border),
                     color: Colors.red,

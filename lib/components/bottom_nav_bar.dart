@@ -77,27 +77,34 @@ class BottomNavBar extends StatelessWidget {
         onTap: (int index) {
           switch (index) {
             case 0:
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) {
                 return homePage.HomePage();
               }));
               break;
             case 1:
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) {
                 return const ShopPage();
               }));
               break;
             case 2:
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return FilmVideoPage();
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) {
+                return const FilmVideoPage(
+                  productID: "",
+                );
               }));
               break;
             case 3:
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) {
                 return const InboxPage();
               }));
               break;
             case 4:
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) {
                 return const AccountPage();
               }));
               break;

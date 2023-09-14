@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage>
   bool liked = false;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     int len = widget.showReviewVideo != null && widget.showReviewVideo!
@@ -45,7 +44,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: getBody(),
-      bottomNavigationBar: BottomNavBar(
+      bottomNavigationBar: const BottomNavBar(
         currentIndex: 0,
       ),
     );
@@ -98,9 +97,11 @@ class _HomePageState extends State<HomePage>
 
     return GestureDetector(
       onDoubleTap: () {
-        setState(() {
-          liked = true;
-        });
+        if (this.mounted) {
+          setState(() {
+            liked = true;
+          });
+        }
       },
       child: RotatedBox(
         quarterTurns: 1,
@@ -125,7 +126,7 @@ class VideoPlayerItem extends StatefulWidget {
   final String albumImg;
   final bool liked;
   final String advertisement;
-  VideoPlayerItem({
+  const VideoPlayerItem({
     Key? key,
     required this.size,
     required this.name,
@@ -159,9 +160,11 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
     _videoController = VideoPlayerController.asset(widget.videoUrl)
       ..initialize().then((value) {
         _videoController.play();
-        setState(() {
-          isShowPlaying = false;
-        });
+        if (this.mounted) {
+          setState(() {
+            isShowPlaying = true;
+          });
+        }
       });
   }
 
@@ -169,6 +172,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+    // _videoController.pause();
     _videoController.dispose();
   }
 
@@ -192,11 +196,13 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
       },
       child: InkWell(
         onTap: () {
-          setState(() {
-            _videoController.value.isPlaying
-                ? _videoController.pause()
-                : _videoController.play();
-          });
+          if (this.mounted) {
+            setState(() {
+              _videoController.value.isPlaying
+                  ? _videoController.pause()
+                  : _videoController.play();
+            });
+          }
         },
         child: RotatedBox(
           quarterTurns: -1,
@@ -208,16 +214,16 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                   Container(
                     height: widget.size.height,
                     width: widget.size.width,
-                    decoration: BoxDecoration(color: black),
+                    decoration: const BoxDecoration(color: black),
                     child: Stack(
                       children: <Widget>[
                         VideoPlayer(_videoController),
-                        Center(
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: isPlaying(),
-                          ),
-                        )
+                        // Center(
+                        //   child: Container(
+                        //     decoration: const BoxDecoration(),
+                        //     child: isPlaying(),
+                        //   ),
+                        // )
                       ],
                     ),
                   ),
@@ -231,7 +237,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            HeaderHomePage(),
+                            const HeaderHomePage(),
                             Expanded(
                                 child: Row(
                               children: <Widget>[

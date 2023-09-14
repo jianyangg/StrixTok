@@ -443,9 +443,11 @@ class _MessageLoopState extends State<MessageLoop> {
 
   void startMessageLoop() {
     Future.delayed(const Duration(seconds: 4), () {
-      setState(() {
-        currentIndex = (currentIndex + 1) % messages.length;
-      });
+      if (mounted) {
+        setState(() {
+          currentIndex = (currentIndex + 1) % messages.length;
+        });
+      }
       startMessageLoop();
     });
   }
