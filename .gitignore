@@ -45,3 +45,5 @@ app.*.map.json
 
 strixtok*.json
 StrixTok.py
+/ios/Runner/GoogleService-Info.plist
+```
